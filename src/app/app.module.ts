@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 import { MainModule } from './main/main.module';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NoPageFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NoPageFoundComponent } from '../no-page-found/no-page-found.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraphOneComponent } from './graph-one/graph-one.component';
-import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ProgressComponent } from './progress/progress.component';
 
 const routes: Routes = [
@@ -16,7 +16,10 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
-  { path: '**', component: NoPageFoundComponent },
+  {
+    path: '**',
+    component: NoPageFoundComponent
+  }
 ];
 
 @NgModule({
