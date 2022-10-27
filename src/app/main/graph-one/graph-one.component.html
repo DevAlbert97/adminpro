@@ -1,1 +1,16 @@
-<p>graph-one works!</p>
+<div class="row">
+  <div class="col-6">
+    <app-graphs title="Status Doctores" [labels]="chartLabels1" [data]="chartData1" [colors]="chartColors1"></app-graphs>
+  </div>
+  <div class="col-6">
+    <app-graphs title="Status Enfermeras" [labels]="chartLabels2" [data]="chartData2" [colors]="chartColors2"></app-graphs>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <app-graphs title="Status Pacientes" [labels]="chartLabels3" [data]="chartData3" [colors]="chartColors3"></app-graphs>
+  </div>
+  <div class="col-6">
+    <app-graphs title="Status Medicamentos" [labels]="chartLabels4" [data]="chartData4" [colors]="chartColors4"></app-graphs>
+  </div>
+</div>

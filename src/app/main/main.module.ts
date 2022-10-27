@@ -1,5 +1,7 @@
+import { ComponentsModule } from './../components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { MainRoutingModule } from './main-routing.module';
 
@@ -15,7 +17,13 @@ import { SharedModule } from '../shared/shared.module';
     GraphOneComponent,
     ProgressComponent,
   ],
-  imports: [CommonModule, MainRoutingModule, SharedModule],
+  imports: [
+    CommonModule, 
+    MainRoutingModule, 
+    SharedModule, 
+    FormsModule,
+    ComponentsModule
+  ],
   exports: [
     DashboardComponent,
     GraphOneComponent,

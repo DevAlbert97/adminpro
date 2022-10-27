@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MainModule } from './main/main.module';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { ComponentsModule } from './components/components.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    MainModule
+    MainModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
