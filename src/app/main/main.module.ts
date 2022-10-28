@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraphOneComponent } from './graph-one/graph-one.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SharedModule } from '../shared/shared.module';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -16,18 +17,20 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     GraphOneComponent,
     ProgressComponent,
+    AccountSettingsComponent,
   ],
   imports: [
-    CommonModule, 
-    MainRoutingModule, 
-    SharedModule, 
+    CommonModule,
+    MainRoutingModule,
+    SharedModule,
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   exports: [
     DashboardComponent,
     GraphOneComponent,
     ProgressComponent,
+    AccountSettingsComponent,
   ],
 })
 export class MainModule {}
