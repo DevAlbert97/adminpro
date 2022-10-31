@@ -10,6 +10,8 @@ import { GraphOneComponent } from './graph-one/graph-one.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SharedModule } from '../shared/shared.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
     GraphOneComponent,
     ProgressComponent,
     AccountSettingsComponent,
+    PromisesComponent,
+    RxjsComponent,
   ],
   imports: [
     CommonModule,

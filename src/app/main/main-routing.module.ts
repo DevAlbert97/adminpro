@@ -6,22 +6,45 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraphOneComponent } from './graph-one/graph-one.component';
 import { ProgressComponent } from './progress/progress.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     children: [
-      { path: 'graph-one', component: GraphOneComponent },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'account-settings', component: AccountSettingsComponent },
+      {
+        path: 'graph-one',
+        component: GraphOneComponent,
+        data: { title: 'Graphs' },
+      },
+      {
+        path: 'progress',
+        component: ProgressComponent,
+        data: { title: 'ProgressBar' },
+      },
+      {
+        path: 'account-settings',
+        component: AccountSettingsComponent,
+        data: { title: 'Settings' },
+      },
+      {
+        path: 'promises',
+        component: PromisesComponent,
+        data: { title: 'Promises' },
+      },
+      { path: 'rxjs', 
+        component: RxjsComponent, 
+        data: { title: 'Rxjs' } 
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
   {
     path: '**',
-    component: NoPageFoundComponent
-  }
+    component: NoPageFoundComponent,
+  },
 ];
 
 @NgModule({
