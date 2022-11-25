@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { MainModule } from './main/main.module';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { ComponentsModule } from './components/components.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,9 +20,10 @@ import { ComponentsModule } from './components/components.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     MainModule,
-    ComponentsModule
+    ComponentsModule,
+    HttpClientModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

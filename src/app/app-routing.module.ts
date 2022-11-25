@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./main/main.module').then(m => m.MainModule)
+    loadChildren: () => import('./main/main.module').then(m => m.MainModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',
