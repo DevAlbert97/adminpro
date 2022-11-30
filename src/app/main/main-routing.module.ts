@@ -5,6 +5,7 @@ import { NoPageFoundComponent } from '../no-page-found/no-page-found.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraphOneComponent } from './graph-one/graph-one.component';
+import { PerfilComponent } from './perfil/perfil.component';
 import { ProgressComponent } from './progress/progress.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
       { path: 'rxjs', 
         component: RxjsComponent, 
         data: { title: 'Rxjs' } 
+      },
+      { path: 'perfil', 
+        component: PerfilComponent, 
+        data: { title: 'Perfil' } 
       },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],

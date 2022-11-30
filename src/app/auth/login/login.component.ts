@@ -33,20 +33,10 @@ export class LoginComponent implements AfterViewInit{
   }
 
   googleInit() {
-    google.accounts.id.initialize({
-      client_id: '448816224966-6tea3rlcmdv80ds8s79h38gjeg0e983o.apps.googleusercontent.com',
-      callback: (response: any) => this.handleCredentialResponse(response)
-    });
     google.accounts.id.renderButton(
       this.googleBtn.nativeElement, 
       { theme: "outline", size: "large" } // customization attributes
     );
-  }
-
-  handleCredentialResponse(response: any) {
-    this.userService.loginGoogle(response.credential).subscribe( resp => {
-      this.router.navigateByUrl('dashboard');
-    });
   }
 
   login() {

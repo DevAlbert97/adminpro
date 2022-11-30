@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  base_url: 'http://localhost:3005/api'
+  base_url: 'http://localhost:3005/api',
+  imageTemp: "http://localhost:3005/api/uploads/users/no-image"
 };
 
 /*

@@ -5,10 +5,10 @@
   <div class="col-md-7 align-self-center">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <a href="javascript:void(0)">Home</a>
+        <a routerLink="/dashboard">Home</a>
       </li>
-      <li class="breadcrumb-item">pages</li>
-      <li class="breadcrumb-item active">{{title}}</li>
+      <li class="breadcrumb-item" *ngIf="title !== undefined">pages</li>
+      <li class="breadcrumb-item active" *ngIf="title !== undefined">{{title}}</li>
     </ol>
   </div>
 </div>

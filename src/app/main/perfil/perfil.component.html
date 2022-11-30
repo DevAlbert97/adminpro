@@ -1,0 +1,49 @@
+<div class="row">
+
+    <div class="col-lg-6 col-md-6">
+      <div class="card">
+        <div class="card-body card-height">
+          <h4 class="card-title">Información de usuario</h4>
+          <form class="form p-t-20" [formGroup]="perfilForm" (ngSubmit)="updatePerfil()">
+            <div class="form-group">
+              <label for="exampleInputuname">Nombre</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="ti-user"></i></div>
+                <input type="text" class="form-control" id="exampleInputuname" placeholder="Nombre de usuario"
+                  [value]="user.name" formControlName="name" [readOnly]="user.google">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Correo Electronico</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="ti-email"></i></div>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Correo electronico"
+                  [value]="user.email" formControlName="email" [readOnly]="user.google">
+              </div>
+            </div>
+            <button type="submit" [disabled]="perfilForm.invalid || user.google" class="btn btn-success waves-effect waves-light m-r-10 btn-block user-btn"><i class="fa fa-save"> Guardar </i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+      <div class="card">
+        <div class="card-body card-height">
+          <h4 class="card-title">Imagen del usuario</h4>
+          <div class="row space-info">
+            <img [src]="user.imageUrl" class="img-avatar mr-2" alt="">
+            <img [src]="imgTemp" class="img-avatar" alt="">
+          </div>
+          <div class="row space-info">
+            <input type="file" name="" id="" (change)="changeImage($event)">
+          </div>
+          <div class="row">
+            <button type="button" [disabled]="!imageUpload" (click)="uploadPhoto()"
+              class="btn btn-primary waves-effect waves-light m-r-10 btn-block "><i class="fa fa-save"> Cambiar imagen
+              </i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
