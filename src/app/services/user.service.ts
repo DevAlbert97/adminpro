@@ -9,6 +9,7 @@ import { LoginForm } from '../interfaces/login-form';
 import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
+import { ChargeUsers } from '../interfaces/charge-users';
 
 declare const google: any;
 
@@ -22,6 +23,8 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  //_ Getters 
+
   get token(): string {
     return localStorage.getItem('token') || '';
   }
@@ -30,7 +33,15 @@ export class UserService {
     return this.user.uid || '';
   }
 
-  //_ Metodo para crear usuario
+  get headers() {
+    return { headers: {
+        'x-token': this.token
+      }
+    }
+  }
+
+  //@ CRUD de Usuario
+
   createUser(formData: RegisterForm) {
     return this.http.post(`${this.base_url}/users`, formData).pipe(
       tap( (resp: any) => {
@@ -39,7 +50,20 @@ export class UserService {
     );
   }
 
-  //_ Metodo para logear a usuario
+  updatePerfil(data: { email: string, name: string, role: string }) {
+    data = {
+      ...data,
+      role: this.user.role!
+    }
+    return this.http.put(`${this.base_url}/users/${this.uid}`, data, this.headers);
+  }
+
+  deleteUser(uid: string) {
+    return this.http.delete(`${this.base_url}/users/${uid}`, this.headers);
+  }
+
+  //@ AUTH
+
   login(formData: LoginForm) {
     return this.http.post(`${this.base_url}/auth`, formData).pipe(
       tap( (resp: any) => {
@@ -48,7 +72,6 @@ export class UserService {
     );
   }
 
-  //_ Metodo para logear a usuario por google
   loginGoogle(token: string) {
     return this.http.post(`${this.base_url}/auth/google`,{token}).pipe(
       tap( (resp:any) => {
@@ -57,7 +80,24 @@ export class UserService {
     );
   }
 
-  //_ Metodo para validar JWT
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('auth/login');
+  }
+
+  logoutGoogle() {
+    try {
+      localStorage.removeItem('token');
+      google.accounts.id.revoke('carloshudm@gmail.com', () => {
+        this.router.navigateByUrl('auth/login');
+      });
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+
+  //@ Metodo para validar JWT
+
   validateToken(): Observable<boolean> {
 
     return this.http.get<boolean>(`${this.base_url}/auth/renew`, {
@@ -78,31 +118,23 @@ export class UserService {
     );
   }
 
-  //_ Metodo para deslogear a usuario de google
-  logoutGoogle() {
-    try {
-      localStorage.removeItem('token');
-      google.accounts.id.revoke('carloshudm@gmail.com', () => {
-        this.router.navigateByUrl('auth/login');
-      });
-    } catch (error) {
-      console.warn(error);
-    }
+  //@ Metodo para carga en tabla de usuarios
+
+  chargeUsers(from: number = 0) {
+    const url: string = `${this.base_url}/users?from=${from}`;
+    return this.http.get<ChargeUsers>(url, this.headers).pipe(
+      map(resp => {
+        const users = resp.users.map( user => new User(user.name, user.email, '', user.img, user.google, user.role, user.uid));
+        return {
+          total: resp.total,
+          users
+        }
+      })
+    );
   }
 
-  //_ Metodo para deslogear a usuario
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigateByUrl('auth/login');
+  updateUser(user: User) {
+    return this.http.put(`${this.base_url}/users/${user.uid}`, user, this.headers);
   }
 
-  //_ Metodo para actualizar perfil de usuario
-  updatePerfil(data: {email: string, name: string, role: string}) {
-
-    return this.http.put(`${this.base_url}/users/${this.uid}`, data, {
-      headers: {
-        'x-token': this.token
-      }
-    });
-  }
 }

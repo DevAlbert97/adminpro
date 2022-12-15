@@ -11,12 +11,14 @@ import { UserService } from '../../services/user.service';
 export class SidebarComponent{
 
   menuItems!: any[];
+  adminMenuItems!: any[];
   user!: User;
 
 
   constructor(private sidebarService: SidebarService, private userService: UserService) { 
     this.menuItems = sidebarService.menu;
     this.user = userService.user;
+    this.user.role === 'ADMIN_ROLE' ? this.adminMenuItems = sidebarService.adminMenu : this.adminMenuItems = [];
   }
 
   logout() {

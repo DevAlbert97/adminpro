@@ -1,19 +1,1 @@
-.img-avatar {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    margin-bottom: 10px;
-}
 
-.space-info > img, .space-info > input {
-    margin: 0 auto;
-    margin-bottom: 10px;
-}
-
-.card-height {
-    height: 22rem;
-}
-
-.user-btn {
-    margin-top: 38.5px;
-}

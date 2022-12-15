@@ -1,0 +1,8 @@
+.btnContainer {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.avatar {
+   cursor: pointer;
+}

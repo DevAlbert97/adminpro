@@ -4,15 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { NgChartsModule } from 'ng2-charts';
 
-import { IncreaserComponent } from './increaser/increaser.component';
 import { GraphsComponent } from './graphs/graphs.component';
+import { IncreaserComponent } from './increaser/increaser.component';
+import { ModalImageComponent } from './modal-image/modal-image.component';
+import { TableLoaderComponent } from './table-loader/table-loader.component';
 
 
 
 @NgModule({
   declarations: [
     IncreaserComponent,
-    GraphsComponent
+    GraphsComponent,
+    TableLoaderComponent,
+    ModalImageComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,9 @@ import { GraphsComponent } from './graphs/graphs.component';
   ],
   exports: [
     IncreaserComponent,
-    GraphsComponent
+    GraphsComponent,
+    TableLoaderComponent,
+    ModalImageComponent
   ]
 })
 export class ComponentsModule { }

@@ -1,7 +1,39 @@
-.cursor-pointer {
+.cursor-pointer, .cursor {
     cursor: pointer;
 }
 
 .cursor-pointer:hover {
-    color: #1976d2 !important;;
+    color: #ffffff !important;
+}
+
+.w100 {
+    width: 100px;
+}
+.w140 {
+    width: 140px;
+}
+
+.avatar {
+    width: 30px;
+    border-radius: 100%;
+}
+
+.img-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+}
+
+.space-info > img, .space-info > input {
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.card-height {
+    height: 22rem;
+}
+
+.user-btn {
+    margin-top: 38.5px;
 }

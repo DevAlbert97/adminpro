@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, NgZone } from '@angular/core';
+import { Component, AfterViewInit, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
 
@@ -13,7 +13,7 @@ declare const google: any;
 export class AppComponent implements AfterViewInit{
   title = 'adminpro';
 
-  constructor(private userService: UserService, private router: Router, private ngZone: NgZone){}
+  constructor(private userService: UserService, private router: Router, private ngZone: NgZone){  }
 
   ngAfterViewInit(): void {
     this.googleInit();

@@ -13,6 +13,9 @@ import { SharedModule } from '../shared/shared.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsersComponent } from './maintenance/users/users.component';
+import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
+import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     PromisesComponent,
     RxjsComponent,
     PerfilComponent,
+    UsersComponent,
+    HospitalsComponent,
+    DoctorsComponent,
   ],
   imports: [
     CommonModule,
